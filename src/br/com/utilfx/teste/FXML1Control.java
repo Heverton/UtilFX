@@ -18,7 +18,6 @@ import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
@@ -46,13 +45,16 @@ import br.com.utilfx.components.tableview.cellfactory.DateTextFieldCellFactory;
 import br.com.utilfx.components.tableview.cellfactory.FilterTextFieldCellFactory;
 import br.com.utilfx.components.tableview.cellfactory.FloatTextFieldCellFactory;
 import br.com.utilfx.components.tableview.cellfactory.MaskTextFieldCellFactory;
+import br.com.utilfx.stage.control.fxcontrol.FXMLInitializable;
+import br.com.utilfx.stage.control.fxcontrol.FXMLControl;
 
 /**
  * FXML Controller class
  *
  * @author Heverton Cruz
  */
-public class FXML1Control implements Initializable {
+@FXMLControl(name="FXML1.fxml")
+public class FXML1Control extends FXMLInitializable {
 
     @FXML
     private Button btAdicionar;
@@ -70,7 +72,7 @@ public class FXML1Control implements Initializable {
     private TableView tvTable;
     
     private TableViewModel tableViewModel;
-
+    
     /**
      * Initializes the controller class.
      *
@@ -246,5 +248,6 @@ public class FXML1Control implements Initializable {
             
         HelpForm.scrollToZera(tableViewModel, tvTable);
     }
+
 
 }
