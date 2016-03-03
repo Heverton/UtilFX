@@ -106,6 +106,7 @@ public class StageMDIControl {
         return new EventHandler<WindowEvent>() {
             @Override
             public void handle(WindowEvent event) {
+                                
                 //Impede o encerramento do Stage
                 final ConfirmDialog confirm = new ConfirmDialog(stage, "Deseja realmente encerrar o sistema?");
 

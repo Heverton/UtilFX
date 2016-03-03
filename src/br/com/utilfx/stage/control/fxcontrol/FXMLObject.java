@@ -7,7 +7,7 @@ package br.com.utilfx.stage.control.fxcontrol;
 
 /**
  *
- * @author c1278778
+ * @author Heverton Cruz
  */
 public class FXMLObject {
 

@@ -12,7 +12,7 @@ import java.lang.annotation.Target;
 
 /**
  *
- * @author c1278778
+ * @author Heverton Cruz
  */
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)

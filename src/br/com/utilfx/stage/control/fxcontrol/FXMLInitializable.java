@@ -8,10 +8,13 @@ package br.com.utilfx.stage.control.fxcontrol;
 import java.io.File;
 import java.io.IOException;
 import java.lang.annotation.Annotation;
-import java.net.URL;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.List;
-import java.util.ResourceBundle;
+import java.util.jar.JarEntry;
+import java.util.jar.JarFile;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
@@ -19,27 +22,29 @@ import javafx.scene.Scene;
 
 /**
  *
- * @author c1278778
+ * @author Heverton Cruz
  */
 public abstract class FXMLInitializable implements Initializable {
 
     private File fxml;
+    private URI uri;
     private Parent root;
 
     public void init() {
         try {
             List<FXMLObject> lists = preperClassContents(this.getClass());
-            
+
             String value = null;
             for (FXMLObject list : lists) {
                 value = (list.getKey().equals("name")) ? list.getValue() : "";
             }
 
-            displayDirectoryContents(new File("src"), value);
+            displayDirectoryContentsIDE(new File("src"), value);
 
             if (fxml != null) {
                 root = FXMLLoader.load(fxml.toURL());
-
+            } else if (uri != null) {
+                root = FXMLLoader.load(uri.toURL());
             } else {
                 System.err.println("ATENÇÃO::: Nome do FXML não encontrado nos diretórios! Verifique o nome do arquivo!");
             }
@@ -86,22 +91,40 @@ public abstract class FXMLInitializable implements Initializable {
         return lists;
     }
 
-    private void displayDirectoryContents(File dir, String name) {
-
+    private void displayDirectoryContentsIDE(File dir, String name) {
         try {
-            File[] files = dir.listFiles();
-            for (File file : files) {
-                if (file.isDirectory()) {
-                    //System.out.println("directory:" + file.getCanonicalPath());
-                    displayDirectoryContents(file, name);
-                } else if (file.getName().equals(name)) {
-                    //System.err.println("file:" + file.getCanonicalPath());
-                    //System.err.println("file:" + file.getName());
-                    fxml = file;
+            if (dir.listFiles() != null) {
+                File[] files = dir.listFiles();
+
+                for (File file : files) {
+                    if (file.isDirectory()) {
+                        displayDirectoryContentsIDE(file, name);
+                    } else if (file.getName().equals(name)) {
+                        fxml = file;
+                    }
                 }
+            } else {
+                displayDirectoryContentsJar(name);
             }
         } catch (Exception ex) {
             ex.printStackTrace();
+        }
+    }
+
+    private void displayDirectoryContentsJar(String name) {
+        try {
+            JarFile jarFile = new JarFile(getClass().getProtectionDomain().getCodeSource().getLocation().toURI().getPath());
+            
+            for (Enumeration<JarEntry> entries = jarFile.entries(); entries.hasMoreElements();) {
+                JarEntry entry = entries.nextElement();
+                String nameclass = entry.getName();
+
+                if (nameclass.contains(name)) {
+                    uri = new URI("jar:"+getClass().getProtectionDomain().getCodeSource().getLocation().toURI().toString() + "!/" + nameclass);                    
+                }
+            }
+        } catch (URISyntaxException | IOException e) {
+            e.printStackTrace();
         }
     }
 

@@ -6,11 +6,14 @@
 package br.com.utilfx.teste;
 
 import java.io.File;
-import java.io.IOException;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
- * @author c1278778
+ * @author Heverton Cruz
  */
 public class NovoMain {
 
@@ -27,6 +30,15 @@ public class NovoMain {
         displayDirectoryContents(currentDir, name);
     }
 
+    public void teste() {
+        try {
+            FileInputStream arq = new FileInputStream(getClass().getResource("./").getPath());
+            System.err.println(arq.toString());
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(NovoMain.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
     public static void displayDirectoryContents(File dir, String name) {
         try {
             File[] files = dir.listFiles();
@@ -34,11 +46,9 @@ public class NovoMain {
                 if (file.isDirectory()) {
                     //System.out.println("directory:" + file.getCanonicalPath());
                     displayDirectoryContents(file, name);
-                } else {
-                    if(file.getName().equals(name)){
-                        System.out.println("file:" + file.getCanonicalPath());
-                        System.out.println("file:> " + file.getName());
-                    }
+                } else if (file.getName().equals(name)) {
+                    System.out.println("file:" + file.getCanonicalPath());
+                    System.out.println("file:> " + file.getName());
                 }
             }
         } catch (Exception e) {
