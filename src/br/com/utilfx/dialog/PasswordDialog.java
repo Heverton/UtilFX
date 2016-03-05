@@ -38,7 +38,7 @@ public class PasswordDialog extends Dialog {
         super(stageMain);
 
         try {
-            Path fxml = Paths.get("src/main/java/com/dialogfx/view/PasswordDialog.fxml");
+            Path fxml = Paths.get("src/br/com/utilfx/dialog/view/PasswordDialog.fxml");
 
             //Carrega o arquivo FXML
             FXMLLoader loader = new FXMLLoader();

@@ -38,7 +38,7 @@ public class PromptDialog extends Dialog {
         super(stageMain);
 
         try {
-            Path fxml = Paths.get("src/main/java/com/dialogfx/view/PromptDialog.fxml");
+            Path fxml = Paths.get("src/br/com/utilfx/dialog/view/PromptDialog.fxml");
 
             //Carrega o arquivo FXML
             FXMLLoader loader = new FXMLLoader();

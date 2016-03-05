@@ -1,5 +1,11 @@
 package br.com.utilfx.dialog;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
@@ -31,7 +37,7 @@ public abstract class Dialog {
     private Dialog(Stage stageMain, Color color, boolean st) {
         //Stages
         stage = new Stage(StageStyle.TRANSPARENT);
-                
+
         background = new Stage(StageStyle.TRANSPARENT);
         //Faz com que o Stage bloquei os demais
         background.initModality(Modality.APPLICATION_MODAL);
@@ -47,39 +53,20 @@ public abstract class Dialog {
         background.setY(0);
         background.setWidth(bounds.getWidth());
         background.setHeight(bounds.getHeight());
-        
-        
+
         //Definando componente da Raiz
         AnchorPane root = new AnchorPane();
         root.getStyleClass().add("background-black");
-        
-        //Carregar o css e seta na propriedade
-        //try {
-            //Carrega o arquivo FXML
-            
-            //Path fxml = Paths.get("src/main/com/java/dialogfx/view/css/dialog.css");
-            
-            root.getStylesheets().add("css/dialog.css");
-            
-//            List<String> lists = fxml.toUri().toURL().openStream();
-//            
-//            for (String list : lists) {
-//                path += list;
-//            }
-//            
-//            root.getStylesheets().add(path);
-//        } catch (MalformedURLException ex) {
-//            ex.printStackTrace();
-//        } catch (IOException ex) {
-//            ex.printStackTrace();
-//        }
+        //Pega o caminho absoluto do CSS do Dialog
+        String path = getClass().getResource("view/css/dialog.css").getPath();
+        path = path.substring(path.indexOf("!/") + 2);
 
         //Caso for linux a opacidade será zero
         //Fundo trasparente
-        if(System.getProperty("os.name").equals("Linux")){
+        if (System.getProperty("os.name").equals("Linux")) {
             background.setOpacity(0.7);
-        }   
-        
+        }
+
         // Mudar a cor de fundo
         if (color != null) {
             root.setStyle("-fx-background-color: '" + color.desaturate() + "'; ");
@@ -89,7 +76,7 @@ public abstract class Dialog {
         Scene scene = new Scene(root, 500, 400);
         //Deixa o cenário transparente
         scene.setFill(null);
-        
+
         //Adicionando o cenário
         background.setScene(scene);
 
