@@ -14,7 +14,7 @@ import br.com.util.string.MaskString;
 /**
  * Interface de formatação de máscara para um TextInputControl.
  *
- * @author Herberts Cruz
+ * @author Heverton Cruz
  * @version 1.0
  */
 public class MaskTextInputControl implements FormatTextInputControlInterface {

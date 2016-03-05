@@ -28,7 +28,7 @@ import javafx.stage.WindowEvent;
 /**
  * Faz o controle de abertura de Frames (Stages)
  *
- * @author Herberts Cruz
+ * @author Heverton Cruz
  * @author Heverton Cruz
  * @version 1.1
  */

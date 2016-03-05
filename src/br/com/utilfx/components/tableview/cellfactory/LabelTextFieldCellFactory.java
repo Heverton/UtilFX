@@ -11,7 +11,7 @@ import br.com.utilfx.components.textinputcontrol.FilterTextInputControl;
  * Cria um objeto para controlar a célula das colunas que possuirem o objeto
  * TextField com filtro de caracteres.
  *
- * @author Herberts Cruz
+ * @author Heverton Cruz
  * @version 1.1
  */
 public class LabelTextFieldCellFactory extends TextFieldCellFactory {

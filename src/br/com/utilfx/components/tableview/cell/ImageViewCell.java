@@ -21,7 +21,7 @@ import static br.com.utilfx.components.tableview.TableViewModel.TipoTableView.ED
  * Cria um TableCell que possue um objeto ImageView com a imagem do atributo do
  * tipo Image do objeto da linha.
  *
- * @author Herberts Cruz
+ * @author Heverton Cruz
  * @version 1.0
  *
  * @param <S>

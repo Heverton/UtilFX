@@ -9,7 +9,7 @@ import br.com.util.string.FormatStringInterface;
 /**
  * Aplica um filtro a um TextInputControl.
  *
- * @author Herberts Cruz
+ * @author Heverton Cruz
  * @version 1.0
  */
 public class FilterTextInputControl implements FormatTextInputControlInterface {

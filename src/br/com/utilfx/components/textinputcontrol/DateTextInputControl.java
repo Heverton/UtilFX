@@ -12,7 +12,7 @@ import br.com.util.string.FormatStringInterface;
 /**
  * Interface de formatação de máscara para um TextInputControl. 
  * 
- * @author Herberts Cruz
+ * @author Heverton Cruz
  * @version 1.0
  */
 public class DateTextInputControl implements FormatTextInputControlInterface {

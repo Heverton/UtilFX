@@ -13,7 +13,7 @@ import br.com.utilfx.components.util.CellReflection;
  * Cria um objeto para controlar a célula das colunas que possuirem 
  * o objeto CheckBox.
  * 
- * @author Herberts Cruz
+ * @author Heverton Cruz
  * @version 1.0
  */
 public class CheckBoxCellFactory implements Callback<TableColumn, TableCell> {

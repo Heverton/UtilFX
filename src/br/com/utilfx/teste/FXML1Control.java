@@ -93,6 +93,7 @@ public class FXML1Control extends FXMLInitializable {
         floatString.setAllowsNegative(true);
         floatString.setFillDecimalPlacesWithZeros(true);
         floatString.setShowFloatWithComma(true);
+        
 
         MaskString maskString = new MaskString("###.###.###-##");
 
@@ -172,6 +173,7 @@ public class FXML1Control extends FXMLInitializable {
                 return cellTF;
             }
         });
+
         tableViewModel.setColumnWithTextField("mascara", "Máscara", 100, new MaskTextFieldCellFactory(tableViewModel, maskString, TextAlignment.LEFT));
         tableViewModel.setColumnWithTextField("data", "Data", 100, new DateTextFieldCellFactory(tableViewModel, new DateString(), TextAlignment.CENTER));
         

@@ -11,7 +11,7 @@ import br.com.util.string.FormatStringInterface;
  * Aplica a formatação padrão de um TextInputControl para o tipo ponto flutuante
  * com as formatações definidas.
  *
- * @author Herberts Cruz
+ * @author Heverton Cruz
  * @version 1.0
  */
 public class FloatTextInputControl implements FormatTextInputControlInterface {

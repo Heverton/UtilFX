@@ -9,7 +9,7 @@ import br.com.utilfx.components.util.CellReflection;
  * Faz a configuração da fábrica de células de um ComboBox, controlando a sua
  * atualização.
  *
- * @author Herberts Cruz
+ * @author Heverton Cruz
  * @version 1.0
  */
 public class CellFactory implements Callback<ListView<Object>, ListCell<String>> {

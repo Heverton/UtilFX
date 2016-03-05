@@ -8,7 +8,7 @@ import br.com.utilfx.components.tableview.cell.ButtonWithTextfieldCell;
  * Cria um objeto para controlar a célula das colunas que possuirem 
  * o objeto CheckBox.
  * 
- * @author Herberts Cruz
+ * @author Heverton Cruz
  * @version 1.0
  */
 public abstract class ButtonWithTextfieldCellFactory implements Callback<TableColumn, ButtonWithTextfieldCell> {

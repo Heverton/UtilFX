@@ -10,7 +10,7 @@ import br.com.util.string.ValidateString;
 /**
  * Faz a formatação do campo para valores numéricos com ponto flutuante.
  * 
- * @author Herberts Cruz, Heverton Cruz
+ * @author Heverton Cruz, Heverton Cruz
  * @version 1.2
  * @deprecated Substituir por FloatTextInputControl.
  */

@@ -28,7 +28,7 @@ import br.com.util.string.ManipuleString;
 /**
  * Cria uma interface comum para objetos Modelos de TableView.
  * 
- * @author Herberts Cruz
+ * @author Heverton Cruz
  * @version 1.0
  */
 public abstract class TableViewModel {

@@ -15,7 +15,7 @@ import br.com.utilfx.components.util.CellReflection;
  * Administra a atualização do objeto da célula, mantendo-o de acordo com a
  * visualização.
  *
- * @author Herberts Cruz
+ * @author Heverton Cruz
  * @version 1.0
  */
 public class CellEditCommit implements EventHandler<TableColumn.CellEditEvent<Object, Object>> {

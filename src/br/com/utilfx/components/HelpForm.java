@@ -28,7 +28,7 @@ import br.com.utilfx.components.tableview.TableViewModel;
 /**
  * Auxilia nas tarefas cotidianas de formulários.
  *
- * @author Herberts Cruz
+ * @author Heverton Cruz
  * @version 1.0
  */
 final public class HelpForm {

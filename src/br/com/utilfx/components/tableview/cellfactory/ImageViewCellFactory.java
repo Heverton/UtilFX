@@ -14,7 +14,7 @@ import br.com.utilfx.components.util.CellReflection;
  * Cria um objeto para controlar a célula das colunas que possuirem o objeto
  * ImageView.
  *
- * @author Herberts Cruz, Heverton Cruz
+ * @author Heverton Cruz, Heverton Cruz
  * @version 1.0
  */
 public class ImageViewCellFactory implements Callback<TableColumn, TableCell> {

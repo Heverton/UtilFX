@@ -21,7 +21,7 @@ import static br.com.utilfx.components.tableview.TableViewModel.TipoTableView.ED
  * Cria um TableCell que possue um objeto TextField que aparece quando se tenta
  * editar e oferece a oportunidade de filtrar os caracteres inseridos.
  *
- * @author Herberts Cruz
+ * @author Heverton Cruz
  * @version 1.0
  *
  * @param <S>

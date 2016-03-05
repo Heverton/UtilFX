@@ -9,7 +9,7 @@ import br.com.utilfx.components.util.CellReflection;
  * Pega o objeto da célula e retira dele o valor do nó, controlando a sua
  * atualização para visualização.
  *
- * @author Herberts Cruz
+ * @author Heverton Cruz
  * @version 1.0
  */
 public class CellStringConverter extends StringConverter<Object> {

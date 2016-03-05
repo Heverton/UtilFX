@@ -8,7 +8,7 @@ import br.com.util.string.ManipuleString;
 /**
  * Navega e executa os métodos get, is e set de uma classe até o último nó.
  *
- * @author Herberts Cruz, Heverton Cruz
+ * @author Heverton Cruz, Heverton Cruz
  * @version 1.2
  */
 public class CellReflection {

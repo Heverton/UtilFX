@@ -3,7 +3,6 @@ package br.com.utilfx.teste;
 import br.com.utilfx.stage.control.StageMDIControl;
 import javafx.application.Application;
 import javafx.stage.Stage;
-import java.io.File;
 import javafx.scene.Scene;
 
 /**
@@ -15,6 +14,7 @@ public class NewFXMain extends Application {
     @Override
     public void start(Stage stage) {
 
+        //FXML
         FXML1Control fxml = new FXML1Control();
         fxml.init();
         
@@ -25,14 +25,6 @@ public class NewFXMain extends Application {
         stage.show();
     }
 
-    /**
-     * The main() method is ignored in correctly deployed JavaFX application.
-     * main() serves only as fallback in case the application can not be
-     * launched through deployment artifacts, e.g., in IDEs with limited FX
-     * support. NetBeans ignores main().
-     *
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         launch(args);
     }

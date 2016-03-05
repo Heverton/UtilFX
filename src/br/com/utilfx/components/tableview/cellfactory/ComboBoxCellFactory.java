@@ -13,7 +13,7 @@ import br.com.utilfx.components.tableview.cell.ComboBoxCell;
  * Cria um objeto para controlar a célula das colunas que possuirem 
  * o objeto ComboBox.
  * 
- * @author Herberts Cruz
+ * @author Heverton Cruz
  * @version 1.0
  */
 public class ComboBoxCellFactory implements Callback<TableColumn, TableCell> {

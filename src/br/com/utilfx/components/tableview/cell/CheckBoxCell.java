@@ -15,7 +15,7 @@ import static br.com.utilfx.components.tableview.TableViewModel.TipoTableView.ED
  * Cria um TableCell que possue um objeto CheckBox com o valor boolean do
  * atributo do objeto da linha.
  *
- * @author Herberts Cruz
+ * @author Heverton Cruz
  * @version 1.0
  * @param <S>
  * @param <T>

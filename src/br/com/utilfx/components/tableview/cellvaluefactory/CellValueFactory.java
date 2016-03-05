@@ -10,7 +10,7 @@ import br.com.utilfx.components.util.CellReflection;
 /**
  * Cria um objeto para controlar a atribuição de valor em colunas.
  * 
- * @author Herberts Cruz
+ * @author Heverton Cruz
  * @version 1.0
  */
 public class CellValueFactory implements Callback<TableColumn.CellDataFeatures, ObservableValue> {

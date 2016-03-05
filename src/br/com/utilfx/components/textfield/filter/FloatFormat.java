@@ -11,7 +11,7 @@ import br.com.util.string.ValidateString;
 /**
  * Faz a formatação do campo para valores numéricos com ponto flutuante.
  *
- * @author Herberts Cruz
+ * @author Heverton Cruz
  * @version 2.0
  * @deprecated Substituir por FloatTextInputControl.
  */

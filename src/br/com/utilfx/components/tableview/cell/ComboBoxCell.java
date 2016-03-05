@@ -17,7 +17,7 @@ import br.com.utilfx.components.util.CellReflection;
  * Cria um TableCell que possue um objeto ComboBox que aparece quando se tenta
  * editar.
  *
- * @author Herberts Cruz
+ * @author Heverton Cruz
  * @version 1.0
  */
 public class ComboBoxCell<S, T> extends TableCellFX<S, T> {

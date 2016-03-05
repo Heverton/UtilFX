@@ -15,7 +15,7 @@ import br.com.utilfx.components.combobox.listener.AutoCompListenerConverter;
  * Abstrai a implantação das configurações padrões de um ComboBox para receber
  * dados de objetos VO gerados pelo NetBeans.
  *
- * @author Herberts Cruz
+ * @author Heverton Cruz
  * @version 1.1
  */
 public class ComboBoxModel {

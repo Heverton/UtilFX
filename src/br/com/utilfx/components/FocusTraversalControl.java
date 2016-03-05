@@ -11,7 +11,7 @@ import javafx.scene.input.KeyEvent;
 /**
  * Faz o controle de passagem de foco dos componentes.
  * 
- * @author Herberts Cruz
+ * @author Heverton Cruz
  * @version 1.0
  */
 public class FocusTraversalControl {
