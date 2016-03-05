@@ -18,6 +18,7 @@ ETC;
 EXEMPLOS:
 
 //---------------------------------------------------
+
 //PASSO 1
 @FXMLControl(name="FXML1.fxml")
 public class FXML1Control extends FXMLInitializable {
@@ -30,17 +31,21 @@ stage.setScene(scene);
 stage.show();
 
 //---------------------------------------------------
+
 final FilterString filterString = new FilterString();
 filterString.setMaxLenght(10);
 filterString.setTypesFilter(new String[]{"alnum"});
 
 //---------------------------------------------------
+
 MaskString maskString = new MaskString("###.###.###-##");
 
 //---------------------------------------------------
+
 ComboBoxModel.editable("descricao", cbAuto, FXCollections.observableArrayList(listUf2));
 
 //---------------------------------------------------
+
 TableViewModel tableViewModel = new TableViewModel(tvTable, TableViewModel.TipoTableView.EDITCELL, FXCollections.observableList(lista));
 
 tableViewModel.setColumnWithButtonWithTextfield("texto", "Buscar", 230, new ButtonWithTextfieldCellFactory() {
@@ -66,13 +71,6 @@ tableViewModel.setColumnWithTextField("texto", "Texto", 100, new FilterTextField
             public void handle(KeyEvent t) {
                 if (t.getCode() == KeyCode.ENTER) {
                     cellTF.commitValue(null, cellTF.getTextField());
-                    
-                    Molde model = (Molde) tvTable.getSelectionModel().getSelectedItem();
-                    //Somar
-                    model.setTexto((Integer.parseInt(model.getTexto()) + 1) + "");
-                    model.setLabel((Integer.parseInt(model.getTexto()) + 2) + "");
-                    
-                    HelpForm.focusCell(tableViewModel, cellTF.getIndex(), 5);
                 }
             }
         });
@@ -91,25 +89,4 @@ files on the projects classpath to your projects dist/lib folder. The IDE
 also adds each of the JAR files to the Class-Path element in the application
 JAR files manifest file (MANIFEST.MF).
 
-To run the project from the command line, go to the dist folder and
-type the following:
-
 java -jar "Util.jar" 
-
-To distribute this project, zip up the dist folder (including the lib folder)
-and distribute the ZIP file.
-
-Notes:
-
-* If two JAR files on the project classpath have the same name, only the first
-JAR file is copied to the lib folder.
-* Only JAR files are copied to the lib folder.
-If the classpath contains other types of files or folders, these files (folders)
-are not copied.
-* If a library on the projects classpath also has a Class-Path element
-specified in the manifest,the content of the Class-Path element has to be on
-the projects runtime path.
-* To set a main class in a standard Java project, right-click the project node
-in the Projects window and choose Properties. Then click Run and enter the
-class name in the Main Class field. Alternatively, you can manually type the
-class name in the manifest Main-Class element.
