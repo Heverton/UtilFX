@@ -1,6 +1,6 @@
 package br.com.utilfx.stage.control;
 
-import br.com.dialogfx.dialog.ConfirmDialog;
+import br.com.utilfx.dialog.ConfirmDialog;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;

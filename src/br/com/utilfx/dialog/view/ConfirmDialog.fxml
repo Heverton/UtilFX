@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+
+<VBox fx:id="confirm" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseDragged="#dragMouse" onMousePressed="#pressMouse" styleClass="v-box" xmlns:fx="http://javafx.com/fxml" fx:controller="com.dialogfx.controller.ConfirmDialogController">
+  <children>
+    <TilePane alignment="TOP_CENTER" prefColumns="0" prefRows="0" VBox.vgrow="ALWAYS">
+      <children>
+        <Label id="lbLabel" fx:id="lbText">
+          <TilePane.margin>
+            <Insets />
+          </TilePane.margin>
+        </Label>
+      </children>
+      <padding>
+        <Insets bottom="10.0" />
+      </padding>
+    </TilePane>
+    <TilePane alignment="TOP_CENTER" prefColumns="0" prefRows="0" VBox.vgrow="ALWAYS">
+      <children>
+        <HBox spacing="10.0">
+          <children>
+            <Button fx:id="btButton1" minWidth="80.0" mnemonicParsing="false" onAction="#btButton1" text="OK" />
+            <Button fx:id="btButton2" minWidth="80.0" mnemonicParsing="false" onAction="#btButton2" text="Cancelar" />
+          </children>
+          <TilePane.margin>
+            <Insets />
+          </TilePane.margin>
+        </HBox>
+      </children>
+    </TilePane>
+  </children>
+  <padding>
+    <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" fx:id="x1" />
+  </padding>
+  <stylesheets>
+    <URL value="@css/dialog.css" />
+  </stylesheets>
+</VBox>
