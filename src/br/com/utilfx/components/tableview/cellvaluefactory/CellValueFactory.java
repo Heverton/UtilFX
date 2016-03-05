@@ -4,7 +4,7 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.TableColumn;
 import javafx.util.Callback;
-import br.com.util.string.FormatStringInterface;
+import util.string.FormatStringInterface;
 import br.com.utilfx.components.util.CellReflection;
 
 /**

@@ -2,7 +2,7 @@ package br.com.utilfx.components.tableview.cellfactory;
 
 import javafx.scene.control.TableColumn;
 import javafx.scene.text.TextAlignment;
-import br.com.util.string.DateString;
+import util.string.DateString;
 import br.com.utilfx.components.tableview.TableViewModel;
 import br.com.utilfx.components.tableview.cell.TextFieldCell;
 import br.com.utilfx.components.textinputcontrol.DateTextInputControl;

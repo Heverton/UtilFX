@@ -3,8 +3,8 @@ package br.com.utilfx.components.textinputcontrol;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.TextInputControl;
-import br.com.util.string.FilterString;
-import br.com.util.string.FormatStringInterface;
+import util.string.FilterString;
+import util.string.FormatStringInterface;
 
 /**
  * Aplica um filtro a um TextInputControl.

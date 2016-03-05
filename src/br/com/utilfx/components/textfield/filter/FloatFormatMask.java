@@ -1,11 +1,11 @@
 package br.com.utilfx.components.textfield.filter;
 
-import br.com.util.aritimetica.AlgebraFloat;
 import java.math.BigDecimal;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.TextField;
-import br.com.util.string.ValidateString;
+import util.string.ValidateString;
+import aritimetica.AlgebraFloat;
 
 /**
  * Faz a formatação do campo para valores numéricos com ponto flutuante.

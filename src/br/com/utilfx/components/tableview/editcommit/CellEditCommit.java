@@ -1,6 +1,6 @@
 package br.com.utilfx.components.tableview.editcommit;
 
-import br.com.util.data.DataHora;
+import data.DataHora;
 import java.math.BigDecimal;
 import java.text.ParseException;
 import java.util.Date;
@@ -8,7 +8,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.EventHandler;
 import javafx.scene.control.TableColumn;
-import br.com.util.string.ValidateString;
+import util.string.ValidateString;
 import br.com.utilfx.components.util.CellReflection;
 
 /**

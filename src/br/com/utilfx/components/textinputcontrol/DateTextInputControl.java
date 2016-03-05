@@ -6,8 +6,8 @@ import javafx.event.EventHandler;
 import javafx.scene.control.TextInputControl;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import br.com.util.string.DateString;
-import br.com.util.string.FormatStringInterface;
+import util.string.DateString;
+import util.string.FormatStringInterface;
 
 /**
  * Interface de formatação de máscara para um TextInputControl. 

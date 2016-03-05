@@ -3,7 +3,7 @@ package br.com.utilfx.components.tableview.cellfactory;
 import javafx.scene.control.TableColumn;
 import javafx.scene.text.TextAlignment;
 import javafx.util.Callback;
-import br.com.util.string.FormatStringInterface;
+import util.string.FormatStringInterface;
 import br.com.utilfx.components.tableview.cell.TextFieldCell;
 
 /**

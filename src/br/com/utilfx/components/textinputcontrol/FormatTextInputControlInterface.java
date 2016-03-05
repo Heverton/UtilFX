@@ -1,7 +1,7 @@
 package br.com.utilfx.components.textinputcontrol;
 
 import javafx.scene.control.TextInputControl;
-import br.com.util.string.FormatStringInterface;
+import util.string.FormatStringInterface;
 
 /**
  * Interface para objetos de formatação de TextInputControl.

@@ -4,8 +4,8 @@ import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.TextInputControl;
-import br.com.util.string.FloatString;
-import br.com.util.string.FormatStringInterface;
+import util.string.FloatString;
+import util.string.FormatStringInterface;
 
 /**
  * Aplica a formatação padrão de um TextInputControl para o tipo ponto flutuante

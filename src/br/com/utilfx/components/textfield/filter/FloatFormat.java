@@ -6,7 +6,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.event.EventHandler;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import br.com.util.string.ValidateString;
+import util.string.ValidateString;
 
 /**
  * Faz a formatação do campo para valores numéricos com ponto flutuante.

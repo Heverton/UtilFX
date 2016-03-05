@@ -1,15 +1,13 @@
 package br.com.utilfx.components.textinputcontrol;
 
-import com.sun.javafx.property.adapter.PropertyDescriptor;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.beans.value.WeakChangeListener;
 import javafx.event.EventHandler;
 import javafx.scene.control.TextInputControl;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import br.com.util.string.FormatStringInterface;
-import br.com.util.string.MaskString;
+import util.string.FormatStringInterface;
+import util.string.MaskString;
 
 /**
  * Interface de formatação de máscara para um TextInputControl.

@@ -23,7 +23,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Tooltip;
 import javafx.scene.control.cell.ComboBoxTableCell;
 import javafx.util.Callback;
-import br.com.util.string.ManipuleString;
+import util.string.ManipuleString;
 
 /**
  * Cria uma interface comum para objetos Modelos de TableView.

@@ -3,7 +3,7 @@ package br.com.utilfx.components.util;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Collection;
-import br.com.util.string.ManipuleString;
+import util.string.ManipuleString;
 
 /**
  * Navega e executa os métodos get, is e set de uma classe até o último nó.

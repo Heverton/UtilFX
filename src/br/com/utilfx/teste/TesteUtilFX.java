@@ -9,10 +9,10 @@ import javafx.scene.Node;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TableView;
 import javafx.stage.Stage;
-import br.com.util.string.DateString;
-import br.com.util.string.FilterString;
-import br.com.util.string.FloatString;
-import br.com.util.string.MaskString;
+import util.string.DateString;
+import util.string.FilterString;
+import util.string.FloatString;
+import util.string.MaskString;
 import br.com.utilfx.components.tableview.TableViewModel;
 
 /**
