@@ -38,13 +38,21 @@ public class PromptDialog extends Dialog {
         super(stageMain);
 
         try {
-            Path fxml = Paths.get("src/br/com/utilfx/dialog/view/PromptDialog.fxml");
+//            Path fxml = Paths.get("src/br/com/utilfx/dialog/view/PromptDialog.fxml");
+//            //Carrega o arquivo FXML
+//            FXMLLoader loader = new FXMLLoader();
+//            loader.setLocation(fxml.toUri().toURL());
+//            loader.setBuilderFactory(new JavaFXBuilderFactory());
+//            Parent root = (Parent) loader.load(fxml.toUri().toURL().openStream());
 
+            PromptDialogController con = new PromptDialogController();
+            con.init();
+            
             //Carrega o arquivo FXML
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(fxml.toUri().toURL());
+            loader.setLocation(con.getFxml().toURL());
             loader.setBuilderFactory(new JavaFXBuilderFactory());
-            Parent root = (Parent) loader.load(fxml.toUri().toURL().openStream());
+            Parent root = (Parent) loader.load(con.getFxml().toURL().openStream());
 
             // Mudar a cor de fundo
             if (color != null) {
@@ -128,4 +136,5 @@ public class PromptDialog extends Dialog {
     public static String open(Stage stageMain, String message, Color color) {
         return new PromptDialog(stageMain, message, color).executeShow().toString();
     }
+
 }

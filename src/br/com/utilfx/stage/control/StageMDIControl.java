@@ -1,6 +1,7 @@
 package br.com.utilfx.stage.control;
 
 import br.com.utilfx.dialog.ConfirmDialog;
+import br.com.utilfx.stage.control.fxcontrol.FXMLInitializable;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -115,13 +116,13 @@ public class StageMDIControl {
                     public void handle(ActionEvent event) {
                         try {
                             //Exclui os handles atribuidos aos eventos
-                            //stage.setOnCloseRequest(null);
+                            stage.setOnCloseRequest(null);
                             //Fecha o option
-                            //confirm.close();
+                            confirm.close();
                             //Fecha todos os Frames abertos
-                            //closeAll();
+                            closeAll();
                             //Fecha a aplicação
-                            //stage.close();
+                            stage.close();
                             //Encerrar processo do Java                        
                             Platform.exit();
                             System.exit(0);
@@ -243,9 +244,9 @@ public class StageMDIControl {
         final Stage stage;
 
         if (!containerStages.containsKey(controller)) {
+            
             //Verifica se já foi instânciado um FXMLLoader vinculado ao Class do controlador.
             URL urlView = getUrlView(controller);
-
             //Cria um objeto FXMLLoader
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(urlView);
@@ -291,6 +292,94 @@ public class StageMDIControl {
             //Armazena a instância do novo Stage
             stages.add(stage);
             containerStages.put(controller, stage);
+
+            EventHandler<WindowEvent> handler = new EventHandler<WindowEvent>() {
+                @Override
+                public void handle(WindowEvent event) {
+                    //stages.remove((Stage) event.getSource());
+                    stages.remove(containerStages.get(controller));
+                    containerStages.remove(controller);
+                    containerFXMLLoader.remove(controller);
+                }
+            };
+
+            //Remove as instâncias dos Frames antes de fechar-lo
+            stage.setOnHiding(handler);
+            //Adidiciona um KeyEvent
+            addKeyEvent(stage);
+            //Atribui ações ao ganhar foco
+            stage.focusedProperty().addListener(new ChangeListener<Boolean>() {
+                @Override
+                public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+                    //Se ganhou foco
+                    if (newValue) {
+                        //Se existe mais de um Stage
+                        if (stages.size() > 1) {
+                            //Remove-o do início e coloca-o no final da lista
+                            stages.remove(stage);
+                            stages.add(stage);
+                        }
+                    }
+                }
+            });
+            
+        } else {
+            //Pega o Stage solicitado
+            stage = (Stage) containerStages.get(controller);
+            //Se estiver minimizado, maximiza-o e coloca-o na frente de todos
+            stage.setIconified(false);
+            stage.toFront();
+        }
+    }
+    
+    
+    public void openFrame(final FXMLInitializable controller, String title, StageStyle style, Modality modality) throws IOException {
+        final Stage stage;
+
+        if (!containerStages.containsKey(controller)) {
+            
+            //Inicializar FXMLInitializable
+            controller.init();
+            
+            //Adiciona à memória o objeto FXMLLoader criado
+            containerFXMLLoader.put(controller.getClass(), new FXMLLoader(controller.getFxml().toURL()));
+
+            Scene scene = new Scene(controller.getRoot());
+
+            //Se o estilo do Stage for transparente
+            if (style == StageStyle.TRANSPARENT) {
+                //Deixa o fundo do cenário transparente
+                scene.setFill(null);
+            }
+
+            stage = new Stage(style);
+            //Faz com que o novo Stage não bloquei os demais
+            stage.initModality(modality);
+            //Especifica que o novo Stage é filho do Stage prinicipal
+            stage.initOwner(stageMain);
+            //Seta o título do Frame
+            stage.setTitle(title);
+            stage.setScene(scene);
+            //Se tiver um favicon
+            if (favicon != null) {
+                stage.getIcons().add(favicon);
+            }
+            stage.setResizable(false);
+
+            ///////// Correção de Erro do JavaFX ao definir "setResizable(false)" /////////
+            if (stage.getScene().getRoot() instanceof Pane) {
+                Pane anchor = (Pane) stage.getScene().getRoot();
+                stage.setWidth(anchor.getPrefWidth() + 6);
+                stage.setHeight(anchor.getPrefHeight() + 28);
+            }
+            ///////// Correção de Erro do JavaFX ao definir "setResizable(false)" /////////
+
+            stage.setFullScreen(false);
+            stage.show();
+
+            //Armazena a instância do novo Stage
+            stages.add(stage);
+            containerStages.put(controller.getClass(), stage);
 
             EventHandler<WindowEvent> handler = new EventHandler<WindowEvent>() {
                 @Override

@@ -1,9 +1,12 @@
 package br.com.utilfx.dialog;
 
 import br.com.utilfx.dialog.controller.AlertDialogController;
+import br.com.utilfx.stage.control.fxcontrol.FXMLControl;
 import java.io.IOException;
+import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ResourceBundle;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Parent;
@@ -24,39 +27,41 @@ public class AlertDialog extends Dialog {
      * Armazena a instância do controlador
      */
     private AlertDialogController controller;
-        
+
     public AlertDialog(Stage stageMain, String message) {
         this(stageMain, message, null, false);
     }
-    
+
     public AlertDialog(Stage stageMain, String message, Color color) {
         this(stageMain, message, color, false);
     }
-    
+
     private AlertDialog(Stage stageMain, String message, Color color, boolean st) {
         super(stageMain);
 
         try {
-            Path fxml = Paths.get("src/br/com/utilfx/dialog/view/AlertDialog.fxml");
-
+            //Path fxml = Paths.get("src/br/com/utilfx/dialog/view/AlertDialog.fxml");
+            AlertDialogController con = new AlertDialogController();
+            con.init();
+            
             //Carrega o arquivo FXML
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(fxml.toUri().toURL());
+            loader.setLocation(con.getFxml().toURL());
             loader.setBuilderFactory(new JavaFXBuilderFactory());
-            Parent root = (Parent) loader.load(fxml.toUri().toURL().openStream());
-                        
+            Parent root = (Parent) loader.load(con.getFxml().toURL().openStream());
+            
             Scene scene = new Scene(root);
             //Deixa o cenário transparente
             scene.setFill(null);
-            
+
             //Adiciona o cenário ao Stage
             stage.setScene(scene);
-            
+
             // Mudar a cor de fundo
-            if(color != null){
-               root.setStyle("-fx-background-color: '"+color.desaturate()+"'; ");
+            if (color != null) {
+                root.setStyle("-fx-background-color: '" + color.desaturate() + "'; ");
             }
-            
+
             //Guarda a referência do controlador
             controller = loader.getController();
 
@@ -66,18 +71,18 @@ public class AlertDialog extends Dialog {
             ex.printStackTrace();
         }
     }
-    
+
     @Override
     protected Object executeShow() {
-        if(controller.getMessage() == null) {
+        if (controller.getMessage() == null) {
             throw new NullPointerException("Deve ser informada uma mensagem para ser exibida.");
-        } else if(controller.getMessage().isEmpty()) {
+        } else if (controller.getMessage().isEmpty()) {
             throw new NullPointerException("Deve ser informada uma mensagem para ser exibida.");
         } else {
             super.showAndWait();
             //Fecha o Dialog
             close();
-        
+
             return null;
         }
     }
@@ -86,7 +91,7 @@ public class AlertDialog extends Dialog {
     public void setMessage(String message) {
         controller.setMessage(message);
     }
-    
+
     /**
      * Exibe o Dialog.
      */
@@ -94,10 +99,10 @@ public class AlertDialog extends Dialog {
     public void show() {
         executeShow();
     }
-    
+
     /**
      * Resgata a instância do botão do Dialog.
-     * 
+     *
      * @return Button
      */
     public Button getButton() {
@@ -106,16 +111,16 @@ public class AlertDialog extends Dialog {
 
     /**
      * Abre uma caixa de Diálogo com a mensagem enviada.
-     * 
+     *
      * @param stageMain
-     * @param message 
+     * @param message
      */
     public static void open(Stage stageMain, String message) {
         new AlertDialog(stageMain, message, null).show();
     }
-    
+
     public static void open(Stage stageMain, String message, Color color) {
         new AlertDialog(stageMain, message, color).show();
     }
-    
+
 }

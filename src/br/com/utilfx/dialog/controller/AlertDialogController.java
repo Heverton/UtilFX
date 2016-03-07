@@ -1,10 +1,11 @@
 package br.com.utilfx.dialog.controller;
 
+import br.com.utilfx.stage.control.fxcontrol.FXMLControl;
+import br.com.utilfx.stage.control.fxcontrol.FXMLInitializable;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
@@ -16,7 +17,8 @@ import javafx.stage.Stage;
  * @author Heverton Cruz
  * @version 1.1
  */
-public class AlertDialogController implements Initializable {
+@FXMLControl(name = "AlertDialog.fxml")
+public class AlertDialogController extends FXMLInitializable {
 
     private double x = 0;
     private double y = 0;

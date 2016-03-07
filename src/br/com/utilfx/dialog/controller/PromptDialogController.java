@@ -1,5 +1,7 @@
 package br.com.utilfx.dialog.controller;
 
+import br.com.utilfx.stage.control.fxcontrol.FXMLControl;
+import br.com.utilfx.stage.control.fxcontrol.FXMLInitializable;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -17,7 +19,8 @@ import javafx.stage.Stage;
  * @author Heverton Cruz
  * @version 1.1
  */
-public class PromptDialogController implements Initializable {
+@FXMLControl(name = "PromptDialog.fxml")
+public class PromptDialogController extends FXMLInitializable {
 
     private double x = 0;
     private double y = 0;

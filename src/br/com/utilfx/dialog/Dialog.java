@@ -1,11 +1,6 @@
 package br.com.utilfx.dialog;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.MalformedURLException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.List;
+import br.com.utilfx.stage.control.fxcontrol.FXMLInitializable;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
@@ -21,7 +16,7 @@ import javafx.stage.StageStyle;
  * @author Heverton Cruz
  * @version 1.1
  */
-public abstract class Dialog {
+public abstract class Dialog  {
 
     protected Stage stage;
     private Stage background;

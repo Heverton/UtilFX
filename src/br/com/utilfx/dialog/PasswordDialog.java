@@ -1,5 +1,6 @@
 package br.com.utilfx.dialog;
 
+import br.com.utilfx.dialog.controller.ConfirmDialogController;
 import br.com.utilfx.dialog.controller.PasswordDialogController;
 import java.io.IOException;
 import java.nio.file.Path;
@@ -38,17 +39,25 @@ public class PasswordDialog extends Dialog {
         super(stageMain);
 
         try {
-            Path fxml = Paths.get("src/br/com/utilfx/dialog/view/PasswordDialog.fxml");
-
+//            Path fxml = Paths.get("src/br/com/utilfx/dialog/view/PasswordDialog.fxml");
+//            //Carrega o arquivo FXML
+//            FXMLLoader loader = new FXMLLoader();
+//            loader.setLocation(fxml.toUri().toURL());
+//            loader.setBuilderFactory(new JavaFXBuilderFactory());
+//            Parent root = (Parent) loader.load(fxml.toUri().toURL().openStream());
+            
+            PasswordDialogController con = new PasswordDialogController();
+            con.init();
+            
             //Carrega o arquivo FXML
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(fxml.toUri().toURL());
+            loader.setLocation(con.getFxml().toURL());
             loader.setBuilderFactory(new JavaFXBuilderFactory());
-            Parent root = (Parent) loader.load(fxml.toUri().toURL().openStream());
+            Parent root = (Parent) loader.load(con.getFxml().toURL().openStream());
 
             // Mudar a cor de fundo
             if (color != null) {
-                root.setStyle("-fx-background-color: '"+color.desaturate()+"'; ");
+                root.setStyle("-fx-background-color: '" + color.desaturate() + "'; ");
             }
 
             Scene scene = new Scene(root);

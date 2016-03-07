@@ -55,33 +55,41 @@ public class ConfirmDialog extends Dialog {
         super(stageMain);
 
         try {
-            
-            Path fxml = Paths.get("src/br/com/utilfx/dialog/view/ConfirmDialog.fxml");
+
+//            Path fxml = Paths.get("src/br/com/utilfx/dialog/view/ConfirmDialog.fxml");
+//            //Carrega o arquivo FXML
+//            FXMLLoader loader = new FXMLLoader();
+//            loader.setLocation(fxml.toUri().toURL());
+//            loader.setBuilderFactory(new JavaFXBuilderFactory());
+//            Parent root = (Parent) loader.load(fxml.toUri().toURL().openStream());
+
+            ConfirmDialogController con = new ConfirmDialogController();
+            con.init();
             
             //Carrega o arquivo FXML
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(fxml.toUri().toURL());
+            loader.setLocation(con.getFxml().toURL());
             loader.setBuilderFactory(new JavaFXBuilderFactory());
-            Parent root = (Parent) loader.load(fxml.toUri().toURL().openStream());
-                        
+            Parent root = (Parent) loader.load(con.getFxml().toURL().openStream());
+            
             Scene scene = new Scene(root);
             //Deixa o cenário transparente
             scene.setFill(null);
-            
+
             //Adiciona o cenário ao Stage
             stage.setScene(scene);
-            
+
             // Mudar a cor de fundo
-            if(color != null){
-               root.setStyle("-fx-background-color: '"+color.desaturate()+"'; ");
+            if (color != null) {
+                root.setStyle("-fx-background-color: '" + color.desaturate() + "'; ");
             }
-            
+
             //Guarda a referência do controlador
             controller = loader.getController();
 
             //Seta a mensagem padrão
             controller.setMessage(message);
-  
+
         } catch (IOException ex) {
             ex.printStackTrace();
         }
