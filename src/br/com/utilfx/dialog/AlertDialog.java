@@ -46,9 +46,9 @@ public class AlertDialog extends Dialog {
             
             //Carrega o arquivo FXML
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(con.getFxml().toURL());
+            loader.setLocation(con.getUrl());
             loader.setBuilderFactory(new JavaFXBuilderFactory());
-            Parent root = (Parent) loader.load(con.getFxml().toURL().openStream());
+            Parent root = (Parent) loader.load(con.getUrl().openStream());
             
             Scene scene = new Scene(root);
             //Deixa o cenário transparente

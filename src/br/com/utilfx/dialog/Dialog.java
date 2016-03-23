@@ -1,16 +1,5 @@
 package br.com.utilfx.dialog;
 
-import br.com.utilfx.stage.control.fxcontrol.FXMLInitializable;
-import com.sun.javafx.css.StyleManager;
-import com.sun.javafx.css.Stylesheet;
-import java.io.File;
-import java.io.InputStream;
-import java.net.MalformedURLException;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;

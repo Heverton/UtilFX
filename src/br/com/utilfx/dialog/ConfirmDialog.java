@@ -2,8 +2,6 @@ package br.com.utilfx.dialog;
 
 import br.com.utilfx.dialog.controller.ConfirmDialogController;
 import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Parent;
@@ -62,17 +60,19 @@ public class ConfirmDialog extends Dialog {
 //            loader.setLocation(fxml.toUri().toURL());
 //            loader.setBuilderFactory(new JavaFXBuilderFactory());
 //            Parent root = (Parent) loader.load(fxml.toUri().toURL().openStream());
-
+//
+//            Scene scene = new Scene(root);
             ConfirmDialogController con = new ConfirmDialogController();
             con.init();
             
             //Carrega o arquivo FXML
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(con.getFxml().toURL());
+            loader.setLocation(con.getUrl());
             loader.setBuilderFactory(new JavaFXBuilderFactory());
-            Parent root = (Parent) loader.load(con.getFxml().toURL().openStream());
+            Parent root = (Parent) loader.load(con.getUrl().openStream());
             
             Scene scene = new Scene(root);
+
             //Deixa o cenário transparente
             scene.setFill(null);
 

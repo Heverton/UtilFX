@@ -8,8 +8,10 @@ package br.com.utilfx.stage.control.fxcontrol;
 import java.io.File;
 import java.io.IOException;
 import java.lang.annotation.Annotation;
+import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
@@ -40,6 +42,11 @@ public abstract class FXMLInitializable implements Initializable {
             }
 
             displayDirectoryContentsIDE(new File("src"), value);
+
+            //Caso nulo carregar uri
+            if (fxml == null) {
+                displayDirectoryContentsJar(value);
+            }
 
             if (fxml != null) {
                 root = FXMLLoader.load(fxml.toURL());
@@ -93,19 +100,17 @@ public abstract class FXMLInitializable implements Initializable {
 
     private void displayDirectoryContentsIDE(File dir, String name) {
         try {
-            if (dir.listFiles() != null) {
-                File[] files = dir.listFiles();
+            File[] files = dir.listFiles();
 
-                for (File file : files) {
-                    if (file.isDirectory()) {
-                        displayDirectoryContentsIDE(file, name);
-                    } else if (file.getName().equals(name)) {
-                        fxml = file;
-                    }
+            for (File file : files) {
+                if (file.isDirectory()) {
+                    displayDirectoryContentsIDE(file, name);
+                } else if (file.getName().equals(name)) {
+                    fxml = file;
                 }
-            } else {
-                displayDirectoryContentsJar(name);
             }
+        } catch (NullPointerException ex) {
+            //Não é preciso validar nulidade
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -113,14 +118,13 @@ public abstract class FXMLInitializable implements Initializable {
 
     private void displayDirectoryContentsJar(String name) {
         try {
-            JarFile jarFile = new JarFile(getClass().getProtectionDomain().getCodeSource().getLocation().toURI().getPath());
+            JarFile jarFile = new JarFile(FXMLInitializable.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath());
 
             for (Enumeration<JarEntry> entries = jarFile.entries(); entries.hasMoreElements();) {
                 JarEntry entry = entries.nextElement();
                 String nameclass = entry.getName();
-
                 if (nameclass.contains(name)) {
-                    uri = new URI("jar:" + getClass().getProtectionDomain().getCodeSource().getLocation().toURI().toString() + "!/" + nameclass);
+                    uri = new URI("jar:" + FXMLInitializable.class.getProtectionDomain().getCodeSource().getLocation().toURI().toString() + "!/" + nameclass);
                 }
             }
         } catch (URISyntaxException | IOException e) {
@@ -134,6 +138,14 @@ public abstract class FXMLInitializable implements Initializable {
 
     public Scene getScene() {
         return new Scene(root);
+    }
+
+    public URI getUri() {
+        return uri;
+    }
+
+    public URL getUrl() throws MalformedURLException {
+        return ((fxml == null) ? uri.toURL() : fxml.toURL());
     }
 
     public Parent getRoot() {
