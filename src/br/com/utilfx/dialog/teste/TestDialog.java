@@ -23,7 +23,7 @@ public class TestDialog extends Application {
         //Scene scene = new Scene(root);
         //stage.setScene(scene);
         //stage.show();
-        
+
         //----------------------------------------------------------------------
         /**
          * Implementação curta com método estático.
@@ -37,11 +37,16 @@ public class TestDialog extends Application {
                 + "que exibi o AlertDialog com uma instância.");
         alert.setMessage("Este é um teste de mensagem alterada \n"
                 + "que exibi o AlertDialog com uma instância.");
-        
-        alert.getButton().setOnAction((ActionEvent t) -> {
-            System.out.println("Sobreescrita da ação do botão do AlertDialog.");
-            alert.close();
+
+        alert.getButton().setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent t) {
+                System.out.println("Sobreescrita da ação do botão do AlertDialog.");
+                System.out.println(1);
+                alert.close();
+            }
         });
+
         alert.show();
         //----------------------------------------------------------------------
         /**
@@ -57,7 +62,7 @@ public class TestDialog extends Application {
                 + "que exibi o  ConfirmDialog com com uma instância.");
         confirm.setMessage("Este é um teste de mensagem alterada \n"
                 + "que exibi o ConfirmDialog com uma instância.");
-        confirm.getButtonLeft().setOnAction(new EventHandler<ActionEvent>(){
+        confirm.getButtonLeft().setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent t) {
                 System.out.println("Sobreescrita da ação do botão esquerdo do ConfirmDialog.");
@@ -65,7 +70,7 @@ public class TestDialog extends Application {
                 confirm.close();
             }
         });
-        confirm.getButtonRight().setOnAction(new EventHandler<ActionEvent>(){
+        confirm.getButtonRight().setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent t) {
                 System.out.println("Sobreescrita da ação do botão direito do ConfirmDialog.");
@@ -88,10 +93,10 @@ public class TestDialog extends Application {
                 + "que exibi o PromptDialog com uma instância.");
         prompt.setMessage("Este é um teste de mensagem alterada \n"
                 + "que exibi o PromptDialog com uma instância.");
-        
+
         prompt.getTextField().setPromptText("Digite qualquer valor...");
-        
-        prompt.getButtonLeft().setOnAction(new EventHandler<ActionEvent>(){
+
+        prompt.getButtonLeft().setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent t) {
                 System.out.println("Sobreescrita da ação do botão esquerdo do PromptDialog.");
@@ -99,7 +104,7 @@ public class TestDialog extends Application {
                 prompt.close();
             }
         });
-        prompt.getButtonRight().setOnAction(new EventHandler<ActionEvent>(){
+        prompt.getButtonRight().setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent t) {
                 System.out.println("Sobreescrita da ação do botão direito do PromptDialog.");
@@ -107,11 +112,11 @@ public class TestDialog extends Application {
             }
         });
         prompt.show();
-        
+
         //----------------------------------------------------------------------
         /**
-        * Implementação curta com método estático.
-        */
+         * Implementação curta com método estático.
+         */
         String result3 = PasswordDialog.open(stage, "Este é um teste de mensagem \n"
                 + "que exibi o PasswordDialog com o método estático.");
         System.out.println(result3);
@@ -122,10 +127,10 @@ public class TestDialog extends Application {
                 + "que exibi o PasswordDialog com uma instância.");
         password.setMessage("Este é um teste de mensagem alterada \n"
                 + "que exibi o PasswordDialog com uma instância.");
-        
+
         password.getPasswordField().setText("Digite qualquer valor...");
-        
-        password.getButtonLeft().setOnAction(new EventHandler<ActionEvent>(){
+
+        password.getButtonLeft().setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent t) {
                 System.out.println("Sobreescrita da ação do botão esquerdo do PasswordDialog.");
@@ -133,7 +138,7 @@ public class TestDialog extends Application {
                 prompt.close();
             }
         });
-        password.getButtonRight().setOnAction(new EventHandler<ActionEvent>(){
+        password.getButtonRight().setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent t) {
                 System.out.println("Sobreescrita da ação do botão direito do PasswordDialog.");
@@ -141,7 +146,7 @@ public class TestDialog extends Application {
             }
         });
         password.show();
-        
+
         //----------------------------------------------------------------------
     }
 

@@ -114,13 +114,13 @@ public abstract class FXMLInitializable implements Initializable {
     private void displayDirectoryContentsJar(String name) {
         try {
             JarFile jarFile = new JarFile(getClass().getProtectionDomain().getCodeSource().getLocation().toURI().getPath());
-            
+
             for (Enumeration<JarEntry> entries = jarFile.entries(); entries.hasMoreElements();) {
                 JarEntry entry = entries.nextElement();
                 String nameclass = entry.getName();
 
                 if (nameclass.contains(name)) {
-                    uri = new URI("jar:"+getClass().getProtectionDomain().getCodeSource().getLocation().toURI().toString() + "!/" + nameclass);                    
+                    uri = new URI("jar:" + getClass().getProtectionDomain().getCodeSource().getLocation().toURI().toString() + "!/" + nameclass);
                 }
             }
         } catch (URISyntaxException | IOException e) {

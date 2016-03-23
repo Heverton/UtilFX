@@ -1,6 +1,16 @@
 package br.com.utilfx.dialog;
 
 import br.com.utilfx.stage.control.fxcontrol.FXMLInitializable;
+import com.sun.javafx.css.StyleManager;
+import com.sun.javafx.css.Stylesheet;
+import java.io.File;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
@@ -16,7 +26,7 @@ import javafx.stage.StageStyle;
  * @author Heverton Cruz
  * @version 1.1
  */
-public abstract class Dialog  {
+public abstract class Dialog {
 
     protected Stage stage;
     private Stage background;
@@ -52,19 +62,23 @@ public abstract class Dialog  {
         //Definando componente da Raiz
         AnchorPane root = new AnchorPane();
         root.getStyleClass().add("background-black");
-        //Pega o caminho absoluto do CSS do Dialog
-        String path = getClass().getResource("view/css/dialog.css").getPath();
-        path = path.substring(path.indexOf("!/") + 2);
-
-        //Caso for linux a opacidade será zero
-        //Fundo trasparente
-        if (System.getProperty("os.name").equals("Linux")) {
-            background.setOpacity(0.7);
-        }
 
         // Mudar a cor de fundo
         if (color != null) {
             root.setStyle("-fx-background-color: '" + color.desaturate() + "'; ");
+        }
+
+        //Pega o caminho absoluto do CSS do Dialog
+        String path = getClass().getResource("view/css/dialog.css").getPath();
+        path = path.substring(path.indexOf("!/") + 2);
+        
+        //Seta o style padrão
+        root.getStylesheets().add(path);
+        
+        //Caso for linux a opacidade será zero
+        //Fundo trasparente
+        if (System.getProperty("os.name").equals("Linux")) {
+            background.setOpacity(0.7);
         }
 
         //Definindo o cenário
@@ -72,6 +86,8 @@ public abstract class Dialog  {
         //Deixa o cenário transparente
         scene.setFill(null);
 
+        //scene.getStylesheets().add("br/com/utilfx/dialog/view/css/dialog.css");
+        
         //Adicionando o cenário
         background.setScene(scene);
 
