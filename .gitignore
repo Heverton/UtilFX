@@ -1,7 +1,16 @@
-/UtilFX/nbproject/private/
-/nbproject/private/
-/build/
-/dist/
-/tapestrymaven/target/
-/tapestry-sample/target/
-/java-sample/nbproject/private/
+# User-specific stuff:
+*.iml
+
+# Created by .ignore support plugin (hsz.mobi)
+### Java template
+*.class
+
+# User-specific stuff:
+.idea/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+target/
