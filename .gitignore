@@ -6,7 +6,7 @@
 *.class
 
 # User-specific stuff:
-.idea/
+.idea
 
 # Package Files #
 *.jar
