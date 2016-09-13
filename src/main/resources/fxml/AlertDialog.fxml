@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+
+<VBox fx:id="alert" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseDragged="#dragMouse" onMousePressed="#pressMouse" styleClass="v-box" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="com.utilfx.dialog.controller.AlertDialogController">
+  <children>
+    <TilePane alignment="TOP_CENTER" prefColumns="0" prefRows="0" VBox.vgrow="ALWAYS">
+      <children>
+        <Label id="lbLabel" fx:id="lbText">
+          <TilePane.margin>
+            <Insets />
+          </TilePane.margin>
+        </Label>
+      </children>
+      <padding>
+        <Insets bottom="10.0" />
+      </padding>
+    </TilePane>
+    <TilePane alignment="TOP_CENTER" prefColumns="0" prefRows="0" VBox.vgrow="ALWAYS">
+      <children>
+        <Button fx:id="btButton" minWidth="80.0" mnemonicParsing="false" onAction="#btButton" text="OK" />
+      </children>
+    </TilePane>
+  </children>
+  <padding>
+    <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" fx:id="x1" />
+  </padding>
+  <stylesheets>
+    <URL value="@../css/dialog.css" />
+  </stylesheets>
+</VBox>

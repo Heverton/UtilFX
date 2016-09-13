@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="371.0" prefWidth="697.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="test.java.com.utilfx.outros.FXML1Control">
+  <children>
+    <TableView id="idTable" fx:id="tvTable" layoutX="14.0" layoutY="127.0" prefHeight="192.0" prefWidth="669.0">
+      <columns>
+        <TableColumn prefWidth="75.0" text="Column X" />
+        <TableColumn prefWidth="75.0" text="Column X" />
+      </columns>
+    </TableView>
+    <Button fx:id="btAdicionar" layoutX="35.0" layoutY="331.0" mnemonicParsing="false" onAction="#onbtAdicionar" text="btAdicionar" />
+    <Button id="btExcluir" fx:id="btConfirmar" layoutX="123.0" layoutY="331.0" mnemonicParsing="false" onAction="#onbtConfirmar" text="btConfirmar" />
+    <Button fx:id="btCancelar" layoutX="212.0" layoutY="331.0" mnemonicParsing="false" text="btCancelar" />
+    <Button id="btAvancar" fx:id="btOcultar" layoutX="294.0" layoutY="331.0" mnemonicParsing="false" onAction="#onbtOcultar" text="btOcultar" />
+    <Button fx:id="btSelectCel" layoutX="372.0" layoutY="331.0" mnemonicParsing="false" text="btSelectCel" />
+    <TextField editable="false" layoutX="41.0" layoutY="30.0" prefWidth="200.0" visible="false" />
+    <ComboBox fx:id="cbAuto" layoutX="14.0" layoutY="15.0" onAction="#onCbAuto" prefHeight="21.0" prefWidth="216.0" promptText="">
+      <items>
+        <FXCollections fx:factory="observableArrayList">
+          <String fx:value="Item 1" />
+          <String fx:value="Item 2" />
+          <String fx:value="Item 3" />
+        </FXCollections>
+      </items>
+    </ComboBox>
+  </children>
+</AnchorPane>
