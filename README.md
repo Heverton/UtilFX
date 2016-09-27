@@ -81,13 +81,24 @@ tableViewModel.setColumnWithTextField("texto", "Texto", 100, new FilterTextField
 
 
 ========================
-BUILD OUTPUT DESCRIPTION
+COMO USAR
 ========================
 
-When you build an Java application project that has a main class, the IDE
-automatically copies all of the JAR
-files on the projects classpath to your projects dist/lib folder. The IDE
-also adds each of the JAR files to the Class-Path element in the application
-JAR files manifest file (MANIFEST.MF).
+<distributionManagement>
+    <repository>
+        <id>internal.repo</id>
+        <name>Temporary Staging Repository</name>
+        <url>file://${project.build.directory}/mvn-repo</url>
+    </repository>
+</distributionManagement>
 
-java -jar "Util.jar" 
+<dependencies>
+    <dependency>
+        <groupId>br.com.util</groupId>
+        <artifactId>com-util</artifactId>
+        <version>1.2</version>
+    </dependency>
+</dependencies>
+
+
+
