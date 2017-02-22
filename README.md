@@ -1,8 +1,6 @@
 # UtilFX
 Framework de Componentes para JavaFX
 
-[![](https://jitpack.io/v/Heverton/newobject.svg)](https://jitpack.io/#Heverton/newobject)
-
 ========================
 CHECK LIST
 ========================
