@@ -1,9 +1,8 @@
 # UtilFX
 Framework de Componentes para JavaFX
 
-========================
-CHECK LIST
-========================
+## CHECK LIST
+
 + COMBOX EDITALVEL
 + COMBOX COM PESQUISA NA COMBOX
 + MASCARA PARA CAMPOS EM TEMPO DE EXECUÇÃO
@@ -15,10 +14,9 @@ CHECK LIST
 + CAIXA DE DIALAGO
 + ETC;
 
-+ EXEMPLOS:
+## EXEMPLOS:
 
-+ //---------------------------------------------------
-+ //PASSO 1
+### PASSO 1
 
         @FXMLControl(name="FXML1.fxml")
         public class FXML1Control extends FXMLInitializable {
@@ -28,21 +26,21 @@ CHECK LIST
         stage.setScene(scene);
         stage.show();
 
-+ //---------------------------------------------------
- 
+### PASSO 1.1
+
         final FilterString filterString = new FilterString();
         filterString.setMaxLenght(10);
         filterString.setTypesFilter(new String[]{"alnum"});
 
-+ //---------------------------------------------------
+### PASSO 1.2
 
         MaskString maskString = new MaskString("###.###.###-##");
 
-//---------------------------------------------------
+### PASSO 1.3
 
         ComboBoxModel.editable("descricao", cbAuto, FXCollections.observableArrayList(listUf2));
 
-//---------------------------------------------------
+### PASSO 1.4
 
         TableViewModel tableViewModel = new TableViewModel(tvTable, TableViewModel.TipoTableView.EDITCELL,      FXCollections.observableList(lista));
 
@@ -76,10 +74,7 @@ CHECK LIST
             }
         });
 
-
-========================
-COMO USAR
-========================
+## COMO USAR:
 
     <distributionManagement>
         <repository>
